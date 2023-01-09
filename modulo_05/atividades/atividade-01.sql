@@ -1,53 +1,49 @@
 CREATE TABLE cursos(
 id INT NOT null generated always as identity (increment by 1),
 curso VARCHAR(255) NOT NULL,
-mensalidade INT,
+mensalidade NUMERIC NOT NULL,
 PRIMARY KEY(id));
 
 CREATE TABLE alunos(
 id INT NOT null generated always as identity (increment by 1),
-nome VARCHAR(255) NOT NULL,
-email VARCHAR(255),
-cpf CHAR(14),
-data_nascimento DATE,
-cidade VARCHAR(255),
-rua VARCHAR(255),
-numero INT,
-complemento VARCHAR(25),
-curso_id INT,
-PRIMARY KEY(id),
-FOREIGN KEY (curso_id) REFERENCES cursos(id));
-
+nome varchar(255) NOT NULL,
+cpf char(11) NOT NULL,
+email varchar(255) NOT NULL,
+data_nascimento date NOT NULL,
+endereco varchar(255),
+complemento varchar(255),
+PRIMARY KEY(id));
 
 INSERT INTO cursos (curso, mensalidade) VALUES 
-('Python', 200),
-('SQL', 90),
-('HTML', 160),
-('JavaScript', 170),
-('CSS', 160),
-('C++', 250),
-('Assembly', 300);
+('Python', 190.90),
+('SQL', 89.90),
+('HTML', 159.90),
+('JavaScript', 169.90),
+('CSS', 159.90),
+('C++', 249.90),
+('Assembly', 299.90);
 
 
-INSERT INTO alunos (nome, email, cpf, data_nascimento, cidade, rua, numero, complemento, curso_id) VALUES
-('Luana', 'luana@gmail.com', '197.787.700-18', '01-05-1996', 'Jaboatão', 'Rua 2', 52, 'CASA', 1),
-('Marilia', 'marilia@hotmail.com', '032.447.230-71', '03-05-1995', 'Recife',  'Rua Barão de Souza Leão', 12, 'APARTAMENTO', 2),
-('Raquel', 'raquel@gmail.com', '144.306.020-85', '15-07-1994', 'Recife', 'Rua Marquês Júlio', 50, 'CASA', 3),
-('Joana', 'joana@gmail.com', '655.023.390-92', '03-07-1995', 'Recife',  'Rua Ana Maria', 30, 'APARTAMENTO', 4),
-('Fabricio', 'fabricio@gmail.com', '508.229.500-49', '01-05-1993', 'Camaragibe',  'Rua Nena Queiroga', 47, 'APARTAMENTO', 5),
-('Everaldo', 'everaldo@hotmail.com', '169.610.560-91', '07-05-1993', 'Camaragibe',  'Rua São João', 56, 'CASA', 6),
-('Ricardo', 'ricardo@gmail.com', '371.473.170-92', '15-05-1998', 'Recife',  'Rua 21 de Abril', 76, 'CASA', 1),
-('Cleber', 'cleber@hotmail.com', '893.199.410-92', '01-05-1997', 'Recife', 'Rua Rio Branco', 86, 'APARTAMENTO', 1),
-('Fernando', 'fernando@hotmail.com', '851.874.000-29', '03-05-1989', 'Camaragibe',  'Rua General Polonio',44, 'CASA', 1),
-('Felipe', 'felipe@hotmail.com', '054.517.780-43', '03-05-1996', 'Camaragibe', 'Rua Hugo Victor', 37, '', 1),
-('Matheus', 'matheus@hotmail.com', '545.365.500-38', '15-05-1989', 'Recife', 'Rua Amêlia', 88, 'APARTAMENTO', 5),
-('Rodrigo', 'rodrigo@hotmail.com', '409.347.670-50', '01-05-1996', 'Camaragibe',  'Rua 13 de Março', 131, '', 6),
-('Luma', 'luma@gmail.com', '838.454.770-08', '01-05-1996', 'Recife', 'Rua 11 de Setembro', 123, 'CASA', 1),
-('Rafael', 'rafael@gmail.com', '285.428.640-50', '15-03-1991', 'Camaragibe',  'Rua Leila Martins', 456, 'CASA', 4),
-('Mariana', 'mariana@gmail.com', '896.885.100-09', '01-07-1998', 'Jaboatão', 'Rua Lucas Tavares', 54, 'APARTAMENTO', 4),
-('Monique', 'monique@gmail.com', '499.208.940-28', '15-07-1993', 'Camaragibe',  'Rua Inâcio Monteiro', 34, 'CASA', 7),
-('Joaquim', 'joaquim@hotmail.com', '499.208.940-28', '01-05-1994', 'Jaboatão',  'Rua Arsênio Geraldo', 65, 'APARTAMENTO', 3),
-('Sandro', 'sandro@gmail.com', '499.208.940-28', '01-05-1996', 'Camaragibe',  'Rua Beberibe', 78, 'APARTAMENTO', 5),
-('Henrique', 'henrique@gmail.com', '648.469.800-73', '07-07-1995', 'Jaboatão', 'Rua das Tamaras', 18, 'CASA', 6),
-('Maria', 'maria@gmail.com', '958.369.410-09', '07-07-1995', 'Jaboatão', 'Rua Welligton', 129, 'CASA', 7),
-('Penha', 'penha@gmail.com', '640.070.730-15', '07-07-1988', 'Jaboatão', 'Rua Lula', 85, 'CASA', 3);
+INSERT INTO alunos (nome, cpf, email, data_nascimento, endereco, complemento) VALUES
+('Luana','74891309059', 'luana@gmail.com','01-05-1996','Rua Desembargador Tenório,405,Maceió,AL','casa'),
+('Marilia','87156434098', 'marilia@hotmail.com','03-05-1995', 'Avenida João Cabral de Melo Neto,895,Linhares,ES','apartamento'),
+('Raquel','54876582009', 'raquel@gmail.com','15-07-1994', 'Rua Buenos Aires,389,Campo Grande,MS',''),
+('Joana','77090621057', 'joana@gmail.com','03-07-1995', 'Rua Industrial José Paulo Alimonda,772,Recife,PE','casa'),
+('Fabricio','40025798081', 'fabricio@gmail.com','01-05-1993', '',''),
+('Everaldo','88665354000', 'everaldo@hotmail.com','07-05-1993', 'Rua Domingos Magno,582,Guarulhos,SP',''),
+('Ricardo','62972133056', 'ricardo@gmail.com','15-05-1998', 'Rua Domingos Laureano de Brum,504,Cruz Alta,RS',''),
+('Cleber','20121986004', 'cleber@hotmail.com','01-05-1997', '',''),
+('Fernando', '96421479049', 'fernando@hotmail.com','03-05-1989', 'Rua Carlos Vasconcelos,637,São Luís,MA','casa'),
+('Felipe','43732416003', 'felipe@hotmail.com','03-05-1996', 'Vila Cruzeiro,398,Belém,PA','apartamento'),
+('Matheus','99289151056', 'matheus@hotmail.com','15-05-1989','Rua Gil,200,Volta Redonda,RJ',''),
+('Rodrigo','30476191076', 'rodrigo@hotmail.com','01-05-1996', 'Rua Manacapuru,115,Macapá,AP','casa'),
+('Luma','91671341066', 'luma@gmail.com','01-05-1996', 'Rua Afonso Camargo,625,Ponta Grossa,PR','casa'),
+('Rafael','93153777020', 'rafael@gmail.com','15-03-1991', 'Rua Radiotelegrafista Odorico de Souza,317,Joinville,SC','apartamento'),
+('Mariana','10513157000', 'mariana@gmail.com','01-07-1998', 'Rua 12,843,Araguaína,TO','casa'),
+('Monique','72661509062', 'monique@gmail.com','15-07-1993', 'Rua Evanildo Serrano de Carvalho,349,João Pessoa,PB',''),
+('Joaquim', '97272994070', 'joaquim@hotmail.com','01-05-1994', 'Avenida André Antônio Maggi,597,Sinop,MT',''),
+('Sandro', '75551822036','sandro@gmail.com','01-05-1996', 'Rua Jocarly Gomes Salles,692,Cariacica,ES','apartamento'),
+('Henrique','87210587098', 'henrique@gmail.com','07-07-1995', 'Rua das Begônias,599,Palmas,TO',''),
+('Maria','43683463007', 'maria@gmail.com','07-07-1995', 'Travessa Flamengo,690,Rio Branco,AC','casa'),
+('Penha','43688963007', 'penha@gmail.com','07-07-1988', 'Avenida Céu Azul,480,Boa Vista,RR','casa'),
+('Laura', '08925636900', 'laura@gmail.com','07-07-1990', 'Rua Espírito Santo,209,Erechim,RS','apartamento');
