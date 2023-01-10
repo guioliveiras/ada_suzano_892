@@ -14,6 +14,15 @@ endereco varchar(255),
 complemento varchar(255),
 PRIMARY KEY(id));
 
+CREATE TABLE matriculas(
+id int NOT NULL generated always as identity (increment by 1),
+aluno_id int NOT NULL, 
+curso_id int NOT NULL,
+PRIMARY KEY (id),
+FOREIGN KEY (aluno_id) REFERENCES alunos(id),
+FOREIGN KEY (curso_id) REFERENCES cursos(id)
+);
+
 INSERT INTO cursos (curso, mensalidade) VALUES 
 ('Python', 190.90),
 ('SQL', 89.90),
@@ -22,7 +31,6 @@ INSERT INTO cursos (curso, mensalidade) VALUES
 ('CSS', 159.90),
 ('C++', 249.90),
 ('Assembly', 299.90);
-
 
 INSERT INTO alunos (nome, cpf, email, data_nascimento, endereco, complemento) VALUES
 ('Luana','74891309059', 'luana@gmail.com','01-05-1996','Rua Desembargador Tenório, 405, Maceió, AL','casa'),
@@ -47,3 +55,11 @@ INSERT INTO alunos (nome, cpf, email, data_nascimento, endereco, complemento) VA
 ('Maria','43683463007', 'maria@gmail.com','07-07-1995', 'Travessa Flamengo, 690, Rio Branco, AC','casa'),
 ('Penha','43688963007', 'penha@gmail.com','07-07-1988', 'Avenida Céu Azul, 480, Boa Vista, RR','casa'),
 ('Laura', '08925636900', 'laura@gmail.com','07-07-1990', 'Rua Espírito Santo, 209, Erechim, RS','apartamento');
+
+INSERT INTO matriculas (aluno_id, curso_id) VALUES
+(14,1),(9,2),(3,1),(5,3),(20,4),(20,5),(9,6),(5,7),
+(12,1),(11,1),(15,2),(7,3),(16,7),(7,6),(11,5),
+(12,4),(17,3),(17,2),(3,3),(2,4),(11,7),(11,3),
+(16,6),(1,1),(2,3),(4,7),(6,2),(8,2),(8,3),(10,1),
+(13,5),(16,2),(18,3),(18,4),(19,2),(21,3),(21,4),
+(22,3),(22,6),(1,5);
