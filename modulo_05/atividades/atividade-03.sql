@@ -2,13 +2,12 @@
 --Formate a data de nascimento no retorno para o formato DD/MM/YYYY (pesquisa a função to_char);
 
 SELECT 
-	aluno_id,
+	id,
 	nome,
 	email,
 	to_char(data_nascimento,'DD/MM/YYYY') 
 FROM alunos
-ORDER BY nome; 
-
+ORDER BY nome;
 
 --2) Liste todos os estudantes que contenham o dígito 4,5 ou 6 no CPF;
 
@@ -19,7 +18,6 @@ WHERE cpf LIKE '%4%'
 OR cpf LIKE '%5%'
 OR cpf LIKE '%6%'
 
-
 --3) Liste todos os estudantes que contenham email com a terminação "@hotmail.com" 
 --e que nasceram antes do ano 2000 (pesquisa a função DATEPART);
 
@@ -29,30 +27,27 @@ FROM alunos
 WHERE email LIKE '%@hotmail.com'
 AND date_part('year',data_nascimento) < 2000;
 
-
 --4) Obtenha a mensalidade mais cara do curso;
 
 SELECT 
 	max(mensalidade) 
 FROM cursos;
 
-
 --5) Obtenha a média das mensalidades do curso;
+
 SELECT 
 	round(avg(mensalidade)) 
 FROM cursos;
 
-
 --6) Obtenha a contagem de quantos cursos são mais caros que a média do curso;
 
 SELECT 
-	count(curso_id)	
+	count(id)	
 FROM cursos
 WHERE 
 mensalidade > (SELECT 
 			   round(avg(mensalidade)) 
                FROM cursos);
-
 
 --7) Obtenha a menor mensalidade acima da média das mensalidades;
 
@@ -64,10 +59,9 @@ mensalidade > (SELECT
 			   round(avg(mensalidade)) 
                FROM cursos);
 
-
 --8) Conte quantos alunos possuem complemento no endereço;
-              
+        
 SELECT 
-	count(aluno_id) AS sem_complemento
+	count(id) AS sem_complemento
 FROM alunos
-WHERE endereco_complemento NOTNULL;
+WHERE endereco NOTNULL;
